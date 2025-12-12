@@ -1,4 +1,12 @@
-alias y=yazi
+alias y='yazi'
+alias zvi='vim ~/.zshrc'
+alias so='source ~/.zshrc'
+alias co='code .'
+alias my='cd ~/'
+alias des='cd ~/Desktop'
+alias dl='cd ~/Downloads'
+alias brdp='brew bundle dump --global'
+
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 function cdghq() {
