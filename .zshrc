@@ -1,3 +1,5 @@
+export PATH="/opt/homebrew/bin:$PATH"
+
 alias y='yazi'
 alias zvi='vim ~/.zshrc'
 alias so='source ~/.zshrc'
@@ -18,3 +20,5 @@ function cdghq() {
     fi
 }
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. "$HOME/.local/bin/env"
