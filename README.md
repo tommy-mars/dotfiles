@@ -8,6 +8,7 @@ macOS の個人環境設定を管理するリポジトリ。シェル設定と H
 |---|---|
 | `.zshrc` | Zsh の設定（PATH、プラグイン、エイリアスなど） |
 | `.Brewfile` | Homebrew でインストールする formula / cask / Mac App Store アプリの一覧 |
+| `setup.sh` | シェル設定の配置とパッケージの一括インストールを行うセットアップスクリプト |
 
 ## セットアップ
 
@@ -23,19 +24,22 @@ ghq get tommy-mars/dotfiles
 git clone https://github.com/tommy-mars/dotfiles.git
 ```
 
-### 2. シェル設定を配置
+### 2. セットアップスクリプトを実行
 
-`.zshrc` をホームディレクトリに配置する（コピーまたはシンボリックリンク）。
+`setup.sh` が Homebrew の導入確認、`.zshrc` の配置（シンボリックリンク）、`.Brewfile` からのパッケージ一括インストールをまとめて行う。
 
 ```sh
+./setup.sh
+```
+
+#### 手動で行う場合
+
+```sh
+# シェル設定を配置（コピーまたはシンボリックリンク）
 cp .zshrc ~/.zshrc
 # または
 ln -s "$(pwd)/.zshrc" ~/.zshrc
-```
 
-### 3. Homebrew でパッケージを一括インストール
-
-```sh
 # Homebrew 未導入なら先にインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
