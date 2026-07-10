@@ -17,10 +17,10 @@ macOS の個人環境設定を管理するリポジトリ。シェル設定と H
 
 ```sh
 # ghq を使う場合
-ghq get yasakan/dotfiles
+ghq get tommy-mars/dotfiles
 
 # もしくは通常の clone
-git clone https://github.com/yasakan/dotfiles.git
+git clone https://github.com/tommy-mars/dotfiles.git
 ```
 
 ### 2. シェル設定を配置
