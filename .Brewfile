@@ -32,7 +32,6 @@ cask "sanesidebuttons"
 cask "scroll-reverser"
 cask "slack"
 cask "stats"
-cask "steam"
 cask "viber"
 cask "visual-studio-code"
 cask "vivaldi"
@@ -41,8 +40,6 @@ mas "Bitwarden", id: 1352778147
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Mouse Gestures for Safari", id: 1618804075
-mas "Phiewer (lite)", id: 1226444549
-mas "Prime Video", id: 545519333
 mas "wBlock", id: 6746388723
 mas "Weather Typing", id: 1402920465
 uv "claude-monitor"

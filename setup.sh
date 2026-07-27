@@ -1,5 +1,5 @@
 #!/bin/bash
-# dotfiles セットアップスクリプト: シェル設定の配置とパッケージの一括インストール
+# dotfiles セットアップスクリプト: シェル設定の配置、パッケージの一括インストール、macOS 設定の適用
 set -euo pipefail
 
 cd "$(dirname "$0")"
@@ -21,5 +21,9 @@ echo "~/.zshrc をシンボリックリンクで配置しました"
 # Homebrew パッケージを一括インストール
 echo "brew bundle install を実行します..."
 brew bundle install --file=.Brewfile
+
+# macOS の設定を適用
+echo "macos.sh を実行します..."
+./macos.sh
 
 echo "セットアップが完了しました。新しいシェルを開くか 'source ~/.zshrc' を実行してください。"

@@ -1,6 +1,6 @@
 # dotfiles
 
-macOS の個人環境設定を管理するリポジトリ。シェル設定と Homebrew のパッケージ一覧をバージョン管理している。
+macOS の個人環境設定を管理するリポジトリ。シェル設定、Homebrew のパッケージ一覧、macOS の各種設定をバージョン管理している。
 
 ## 収録ファイル
 
@@ -8,7 +8,8 @@ macOS の個人環境設定を管理するリポジトリ。シェル設定と H
 |---|---|
 | `.zshrc` | Zsh の設定（PATH、プラグイン、エイリアスなど） |
 | `.Brewfile` | Homebrew でインストールする formula / cask / Mac App Store アプリの一覧 |
-| `setup.sh` | シェル設定の配置とパッケージの一括インストールを行うセットアップスクリプト |
+| `macos.sh` | `defaults write` による macOS のシステム設定（キーボード、Finder、Dock など） |
+| `setup.sh` | シェル設定の配置、パッケージの一括インストール、macOS 設定の適用をまとめて行うセットアップスクリプト |
 
 ## セットアップ
 
@@ -26,7 +27,7 @@ git clone https://github.com/tommy-mars/dotfiles.git
 
 ### 2. セットアップスクリプトを実行
 
-`setup.sh` が Homebrew の導入確認、`.zshrc` の配置（シンボリックリンク）、`.Brewfile` からのパッケージ一括インストールをまとめて行う。
+`setup.sh` が Homebrew の導入確認、`.zshrc` の配置（シンボリックリンク）、`.Brewfile` からのパッケージ一括インストール、`macos.sh` による macOS 設定の適用をまとめて行う。
 
 ```sh
 ./setup.sh
@@ -45,6 +46,9 @@ ln -s "$(pwd)/.zshrc" ~/.zshrc
 
 # .Brewfile から一括インストール
 brew bundle install --file=.Brewfile
+
+# macOS の設定を適用
+./macos.sh
 ```
 
 ## メンテナンス
@@ -66,5 +70,16 @@ git push
 cp ~/.zshrc .zshrc
 git add .zshrc
 git commit -m "update .zshrc"
+git push
+```
+
+### `macos.sh` を更新
+
+`defaults write` を追記・修正したら、実機で反映確認のうえコミットする。
+
+```sh
+./macos.sh
+git add macos.sh
+git commit -m "update macos.sh"
 git push
 ```
