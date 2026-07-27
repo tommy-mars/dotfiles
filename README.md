@@ -1,15 +1,17 @@
 # dotfiles
 
-macOS の個人環境設定を管理するリポジトリ。シェル設定、Homebrew のパッケージ一覧、macOS の各種設定をバージョン管理している。
+macOS の個人環境設定を管理するリポジトリ。シェル設定、Git 設定、エディタ設定、Homebrew のパッケージ一覧、macOS の各種設定をバージョン管理している。
 
 ## 収録ファイル
 
 | ファイル | 内容 |
 |---|---|
 | `.zshrc` | Zsh の設定（PATH、プラグイン、エイリアスなど） |
+| `.gitconfig` | Git のユーザー情報・エイリアスなどの設定 |
+| `vscode/settings.json` | VS Code のユーザー設定 |
 | `.Brewfile` | Homebrew でインストールする formula / cask / Mac App Store アプリの一覧 |
 | `macos.sh` | `defaults write` による macOS のシステム設定（キーボード、Finder、Dock など） |
-| `setup.sh` | シェル設定の配置、パッケージの一括インストール、macOS 設定の適用をまとめて行うセットアップスクリプト |
+| `setup.sh` | シェル設定・Git設定・VS Code設定の配置、パッケージの一括インストール、macOS 設定の適用をまとめて行うセットアップスクリプト |
 
 ## セットアップ
 
@@ -27,7 +29,7 @@ git clone https://github.com/tommy-mars/dotfiles.git
 
 ### 2. セットアップスクリプトを実行
 
-`setup.sh` が Homebrew の導入確認、`.zshrc` の配置（シンボリックリンク）、`.Brewfile` からのパッケージ一括インストール、`macos.sh` による macOS 設定の適用をまとめて行う。
+`setup.sh` が Homebrew の導入確認、`.zshrc` / `.gitconfig` / VS Code `settings.json` の配置（シンボリックリンク）、`.Brewfile` からのパッケージ一括インストール、`macos.sh` による macOS 設定の適用をまとめて行う。
 
 ```sh
 ./setup.sh
@@ -40,6 +42,12 @@ git clone https://github.com/tommy-mars/dotfiles.git
 cp .zshrc ~/.zshrc
 # または
 ln -s "$(pwd)/.zshrc" ~/.zshrc
+
+# Git 設定を配置
+ln -s "$(pwd)/.gitconfig" ~/.gitconfig
+
+# VS Code の設定を配置
+ln -s "$(pwd)/vscode/settings.json" ~/Library/Application\ Support/Code/User/settings.json
 
 # Homebrew 未導入なら先にインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -81,5 +89,15 @@ git push
 ./macos.sh
 git add macos.sh
 git commit -m "update macos.sh"
+git push
+```
+
+### `.gitconfig` / VS Code 設定を更新
+
+シンボリックリンクで配置しているため、実機側を直接編集すればリポジトリにも反映される。変更後はコミットする。
+
+```sh
+git add .gitconfig vscode/settings.json
+git commit -m "update .gitconfig and vscode settings"
 git push
 ```
