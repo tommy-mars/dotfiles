@@ -51,6 +51,14 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 ###############################################################################
+# ネットワーク                                                                #
+###############################################################################
+
+# Ethernet を固定IP化(NixOS機のPrometheusから安定してスクレイピングするため)
+sudo networksetup -setmanual Ethernet 192.168.1.5 255.255.255.0 192.168.1.1
+sudo networksetup -setdnsservers Ethernet 192.168.1.1
+
+###############################################################################
 # Dock                                                                        #
 ###############################################################################
 
