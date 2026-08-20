@@ -10,7 +10,7 @@ brew "jq"
 brew "llama.cpp"
 brew "mas"
 brew "mole"
-brew "node_exporter"
+brew "node_exporter", restart_service: :changed
 brew "poppler"
 brew "python-tk@3.14"
 brew "ripgrep"
@@ -40,7 +40,6 @@ cask "viber"
 cask "visual-studio-code"
 cask "vivaldi"
 cask "vlc"
-mas "Bitwarden", id: 1352778147
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Mouse Gestures for Safari", id: 1618804075
