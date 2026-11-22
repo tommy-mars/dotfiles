@@ -8,6 +8,7 @@ brew "ghq"
 brew "git"
 brew "htop"
 brew "jq"
+brew "leaf-markdown-viewer"
 brew "llama.cpp"
 brew "mas"
 brew "mole"
@@ -26,7 +27,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "teamookla/speedtest/speedtest", trusted: true
 cask "appcleaner"
-cask "chromium"
 cask "claude-code"
 cask "flowvision"
 cask "ghostty"
@@ -44,9 +44,10 @@ cask "steam"
 cask "telegram"
 cask "terminal-browser"
 cask "viber"
-cask "visual-studio-code"
 cask "vivaldi"
 cask "vlc"
+cask "zed"
+mas "AdGuard Mini", id: 1440147259
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Mouse Gestures for Safari", id: 1618804075
