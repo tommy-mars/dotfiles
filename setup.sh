@@ -26,16 +26,6 @@ fi
 ln -sf "$(pwd)/.gitconfig" "$HOME/.gitconfig"
 echo "~/.gitconfig をシンボリックリンクで配置しました"
 
-# VS Code の settings.json を配置（既存があれば .bak として退避）
-VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
-mkdir -p "$VSCODE_USER_DIR"
-if [ -e "$VSCODE_USER_DIR/settings.json" ] && [ ! -L "$VSCODE_USER_DIR/settings.json" ]; then
-  echo "既存の VS Code settings.json を settings.json.bak として退避します"
-  mv "$VSCODE_USER_DIR/settings.json" "$VSCODE_USER_DIR/settings.json.bak"
-fi
-ln -sf "$(pwd)/vscode/settings.json" "$VSCODE_USER_DIR/settings.json"
-echo "VS Code の settings.json をシンボリックリンクで配置しました"
-
 # Homebrew パッケージを一括インストール
 echo "brew bundle install を実行します..."
 brew bundle install --file=.Brewfile
